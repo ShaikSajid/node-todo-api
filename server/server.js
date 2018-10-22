@@ -6,6 +6,7 @@ const {User}=require('./models/user');
 const {Todo}=require('./models/todo');
 
 var app=express();
+var port=process.env.port||3000
 
 app.use(bodyParser.json());
 
@@ -29,7 +30,7 @@ Todo.find().then((todos)=>{
     res.status(400).send(err);
 });
 });
-app.listen(3000,()=>{
-    console.log('server running at port 3000');
+app.listen(port,()=>{
+    console.log('server running at port '+port);
 })
 
